@@ -11,7 +11,7 @@
             padding:0;
         }
         .fundo{
-            background-image: linear-gradient(45deg, black,yellow);
+            background-image: linear-gradient(45deg, black,red);
             height: 100vh;
             color: white;
             font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
@@ -82,11 +82,11 @@
                     <td><button class="botao" onclick="insert('1')">1</button></td>
                     <td><button class="botao" onclick="insert('2')">2</button></td>
                     <td><button class="botao" onclick="insert('3')">3</button></td>
-                    <td rowspan="2"><button class="botao" style="height:100px">=</button></td>
+                    <td rowspan="2"><button class="botao" onclick="calcular()" style="height:100px">=</button></td>
                 </tr>
                 <tr>
                     <td colspan="2"> <button class="botao" style="width:108px" onclick="insert('0')">0</button></td>
-                    <td><button class="botao">.</button></td>
+                    <td><button class="botao" onclick="insert('.')">.</button></td>
                 </tr>
             </table>
         </div>
@@ -103,6 +103,14 @@
         function back(){
             var resultado = document.getElementById('resultado').innerHTML;
             document.getElementById('resultado').innerHTML = resultado.substring(0, resultado.length -1);
+        }
+        function calcular(){
+            var resultado = document.getElementById('resultado').innerHTML;
+            if(resultado){
+                document.getElementById('resultado').innerHTML = eval(resultado);
+            }else{
+                document.getElementById('resultado').innerHTML = "Nada para calcular";
+            }
         }
     </script>
 </body>
